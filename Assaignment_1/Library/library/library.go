@@ -19,6 +19,10 @@ func NewLibrary() *Library {
 	}
 }
 
+func (l *Library) AddBook(book Book) {
+	l.collection[book.ID] = book
+}
+
 func (l *Library) BorrowBook(id string) {
 	if book, exitsts := l.collection[id]; exitsts && !book.IsBorrowed {
 		book.IsBorrowed = true
